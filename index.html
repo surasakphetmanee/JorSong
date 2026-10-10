@@ -1,31 +1,110 @@
 <!doctype html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JorSong — use your iPad as a second display for your Mac</title>
+<title>JorSong — ใช้ iPad เป็นจอที่สองของ Mac</title>
+<meta name="description" content="JorSong (จอสอง) ทำให้ iPad เป็นจอที่สองของ Mac ผ่าน Wi‑Fi หรือสาย USB ภาพ H.264 หน่วงต่ำ รองรับ Apple Pencil, trackpad และคีย์บอร์ด ไม่มีบัญชี ไม่มี analytics">
+<meta property="og:title" content="JorSong — ใช้ iPad เป็นจอที่สองของ Mac">
+<meta property="og:description" content="จอที่สองสำหรับ Mac บน iPad ผ่าน Wi‑Fi หรือ USB ภาพ H.264 หน่วงต่ำ รองรับ Apple Pencil, trackpad และคีย์บอร์ด">
+<meta property="og:image" content="https://surasakphetmanee.github.io/JorSong/screenshot-stream.jpg">
+<link rel="icon" href="icon.png">
 <style>
-  body { font-family: -apple-system, system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
-  h1 { font-size: 2em; } .btn { display: inline-block; background: #0a66c2; color: #fff; padding: 10px 18px; border-radius: 8px; text-decoration: none; margin: 6px 8px 6px 0; }
-  code { background: #f2f2f2; padding: 2px 5px; border-radius: 4px; }
+  :root { --bg:#f7f8fb; --fg:#1b1f2a; --muted:#5b6170; --accent:#1c5ad9; --card:#fff; --border:#e3e6ee; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0f1218; --fg:#e8eaf0; --muted:#9aa1b2; --accent:#6ea0ff; --card:#171b24; --border:#262b37; } }
+  * { box-sizing:border-box } body { margin:0; font:17px/1.6 -apple-system, "SF Pro Text", "Sukhumvit Set", "Thonburi", system-ui, sans-serif; background:var(--bg); color:var(--fg) }
+  main { max-width:760px; margin:0 auto; padding:56px 20px 80px }
+  h1 { font-size:40px; line-height:1.15; margin:0 0 12px } h2 { font-size:22px; margin:40px 0 10px }
+  .hero { display:flex; gap:20px; align-items:center } .hero img { width:96px; height:96px; border-radius:22px; flex:none }
+  .lead { font-size:20px; color:var(--muted) }
+  .cta { display:inline-block; margin:22px 10px 8px 0; padding:14px 22px; background:var(--accent); color:#fff; border-radius:12px; text-decoration:none; font-weight:600 }
+  .cta.secondary { background:var(--card); color:var(--accent); border:1px solid var(--border) }
+  .small { font-size:14px; color:var(--muted) }
+  .shot { width:100%; border-radius:14px; border:1px solid var(--border); margin:18px 0 6px; display:block }
+  .steps { display:grid; gap:12px; grid-template-columns:1fr 1fr } @media (max-width:640px) { .steps { grid-template-columns:1fr } }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 20px }
+  .card h3 { margin:0 0 8px; font-size:17px } .card ol { margin:0; padding-left:20px } .card li { margin:4px 0 }
+  ul { padding-left:22px } li { margin:6px 0 }
+  kbd { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:1px 6px; font-family:inherit }
+  code { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:1px 6px; font-family:"SF Mono", Menlo, monospace; font-size:15px }
+  footer { margin-top:56px; font-size:14px; color:var(--muted) } a { color:var(--accent) }
 </style>
 </head>
 <body>
-<h1>JorSong</h1>
-<p>Turn your iPad into a second display for your Mac over Wi‑Fi or USB. Hardware H.264 streaming, Apple Pencil, trackpad and keyboard support. No account, no analytics.</p>
-<p>
-  <a class="btn" href="https://github.com/surasakphetmanee/JorSong/releases/latest">Download JorSong for Mac (.dmg)</a>
-  <a class="btn" href="https://github.com/surasakphetmanee/JorSong">Source on GitHub</a>
-</p>
-<h2>How to use</h2>
-<ol>
-  <li>On the Mac (macOS 14 or later): open the .dmg, drag JorSong to Applications, launch it and allow <strong>Screen Recording</strong> and <strong>Accessibility</strong> when asked.</li>
-  <li>On the iPad: install JorSong from the App Store, open it and tap your Mac under "Macs on this network" (or type the Mac's address).</li>
-  <li>Arrange the new display in System Settings → Displays like any monitor.</li>
-</ol>
-<p>No iPad app? Open <code>http://&lt;your-mac&gt;:8787</code> in Safari for the JPEG web client.</p>
-<h2>Support</h2>
-<p>Questions or problems: <a href="https://github.com/surasakphetmanee/JorSong/issues">open an issue on GitHub</a>.</p>
-<p><a href="privacy.html">Privacy policy</a></p>
+<main>
+  <div class="hero">
+    <img src="icon.png" alt="ไอคอน JorSong">
+    <div>
+      <h1>JorSong</h1>
+      <p class="lead" style="margin:0">ใช้ iPad เป็นจอที่สองของ Mac ผ่าน Wi‑Fi หรือสาย USB ภาพคม หน่วงต่ำ แตะ ลาก เขียนด้วย Apple Pencil และพิมพ์ได้เหมือนจอสัมผัส</p>
+    </div>
+  </div>
+
+  <a class="cta" href="https://github.com/surasakphetmanee/JorSong/releases/latest/download/JorSong-1.0.0.dmg">ดาวน์โหลด JorSong สำหรับ macOS 14+</a>
+  <a class="cta secondary" href="https://apps.apple.com/app/jorsong/id6821241779">แอป JorSong สำหรับ iPad บน App Store</a>
+  <p class="small">ใช้ฟรีทั้งสองฝั่ง แอป Mac แจกจ่ายโดยตรงและผ่านการ notarize จาก Apple แล้ว (ไม่ผ่าน Mac App Store เพราะต้องสร้างจอเสมือนและควบคุมเมาส์ ซึ่ง App Store ไม่อนุญาต) แอป iPad อยู่ระหว่างรอการตรวจสอบจาก App Store ถ้าลิงก์ยังเปิดไม่ได้ ให้ใช้ Safari บน iPad แทนไปก่อน (ดูด้านล่าง)</p>
+
+  <img class="shot" src="screenshot-stream.jpg" alt="หน้าจอ Mac ที่แสดงบน iPad ผ่าน JorSong">
+  <p class="small">จอเสมือนของ Mac แสดงบน iPad Pro 13" แบบเต็มจอ</p>
+
+  <h2>ทำงานอย่างไร</h2>
+  <ul>
+    <li>แอป Mac (อยู่ใน menu bar) สร้าง <strong>จอเสมือน</strong> เพิ่มขึ้นมาอีกจอ จัดตำแหน่งได้ใน System Settings → Displays เหมือนจอจริง</li>
+    <li>ภาพถูกเข้ารหัสเป็น <strong>H.264</strong> ด้วยฮาร์ดแวร์ ส่งเฉพาะส่วนที่เปลี่ยน จึงลื่นถึง 60 fps และกินแบนด์วิดท์น้อย รองรับความละเอียด Retina 2x</li>
+    <li>การแตะบน iPad ย้อนกลับไปเป็นเมาส์และคีย์บอร์ดบน Mac: แตะ = คลิก, ลาก = ลากเมาส์, แตะค้าง = คลิกขวา, สองนิ้วลาก = เลื่อน, Apple Pencil = วาด/ลากแม่นยำ, trackpad/เมาส์ที่ต่อกับ iPad = ชี้และเลื่อนได้</li>
+    <li>พิมพ์ด้วยคีย์บอร์ดบนจอ iPad (ไทย/อังกฤษ) หรือคีย์บอร์ดจริง รวมถึงปุ่มลัด ⌘</li>
+    <li>iPad ค้นหา Mac ให้เองด้วย Bonjour หรือพิมพ์ที่อยู่ Mac ก็ได้</li>
+  </ul>
+
+  <h2>ติดตั้ง</h2>
+  <div class="steps">
+    <div class="card">
+      <h3>1. บน Mac</h3>
+      <ol>
+        <li>ดาวน์โหลด .dmg แล้วลาก JorSong ไปไว้ใน Applications</li>
+        <li>เปิดแอป แล้วอนุญาต <strong>Screen Recording</strong> และ <strong>Accessibility</strong> ใน System Settings → Privacy &amp; Security</li>
+        <li>เปิดแอปใหม่อีกครั้ง ไอคอน iPad จะปรากฏบน menu bar</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>2. บน iPad</h3>
+      <ol>
+        <li>ติดตั้งแอป JorSong จาก App Store แล้วเปิด</li>
+        <li>แตะชื่อ Mac ของคุณใน "Macs on this network" (อนุญาต Local Network เมื่อถาม)</li>
+        <li>ภาพจอเสมือนจะแสดงเต็มจอ แตะเพื่อสั่งงานได้ทันที</li>
+      </ol>
+    </div>
+  </div>
+  <img class="shot" src="screenshot-connect.jpg" alt="หน้าเชื่อมต่อของแอป JorSong บน iPad แสดงรายชื่อ Mac ในเครือข่าย">
+  <p class="small">ไม่มีแอป iPad? เปิด Safari บน iPad ไปที่ที่อยู่ซึ่งแสดงในเมนู JorSong บน Mac (เช่น <code>http://192.168.1.10:8787</code>) จะได้เวอร์ชันเว็บแบบ JPEG ที่ไม่ต้องติดตั้งอะไร</p>
+
+  <h2>ความต้องการของระบบ</h2>
+  <ul>
+    <li>Mac: macOS 14 Sonoma ขึ้นไป (Apple Silicon หรือ Intel)</li>
+    <li>iPad: iPadOS 17 ขึ้นไป</li>
+    <li>ทั้งสองเครื่องอยู่ใน Wi‑Fi เดียวกัน หรือต่อสาย USB แล้วเปิด Internet Sharing/USB networking</li>
+  </ul>
+
+  <h2>ความเป็นส่วนตัว</h2>
+  <ul>
+    <li>ภาพหน้าจอและการแตะวิ่งตรงระหว่าง Mac กับ iPad ของคุณในเครือข่ายเดียวกัน ไม่ผ่านเซิร์ฟเวอร์ใด</li>
+    <li>ไม่มีบัญชี ไม่มี analytics ไม่มีโฆษณา ไม่เก็บข้อมูลใด ๆ</li>
+    <li>สิทธิ์ Screen Recording ใช้จับภาพเฉพาะจอเสมือนที่แอปสร้างขึ้น สิทธิ์ Accessibility ใช้ส่งการแตะจาก iPad เป็นเมาส์/คีย์บอร์ด</li>
+    <li><a href="privacy.html">นโยบายความเป็นส่วนตัวฉบับเต็ม (English)</a></li>
+  </ul>
+
+  <h2>คำถามที่พบบ่อย</h2>
+  <ul>
+    <li><strong>ภาพไม่ขึ้น บอกให้อนุญาต Screen Recording?</strong> — ให้สิทธิ์แล้วต้อง <em>เปิดแอป Mac ใหม่</em> เพราะ macOS จำสิทธิ์ตอนเริ่มโปรเซส</li>
+    <li><strong>แตะแล้วไม่คลิก?</strong> — ตรวจว่า JorSong เปิดอยู่ใน Accessibility ของ Mac</li>
+    <li><strong>iPad ไม่เห็น Mac ในรายการ?</strong> — เช็กว่าอยู่ Wi‑Fi เดียวกันและ iPad อนุญาต Local Network ให้ JorSong หรือพิมพ์ IP ของ Mac ในช่อง "Connect by address"</li>
+    <li><strong>ภาพกระตุก?</strong> — ลดคุณภาพที่เมนู Image Quality หรือเลือก Stream Resolution 1x บน Mac</li>
+  </ul>
+
+  <h2>ติดต่อ / แจ้งปัญหา</h2>
+  <p>เปิด issue ได้ที่ <a href="https://github.com/surasakphetmanee/JorSong/issues">github.com/surasakphetmanee/JorSong/issues</a></p>
+
+  <footer>© 2026 Surasak Phetmanee — <a href="privacy.html">Privacy Policy</a> · <a href="https://github.com/surasakphetmanee/JorSong/releases">เวอร์ชันทั้งหมด</a></footer>
+</main>
 </body>
 </html>
