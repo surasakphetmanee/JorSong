@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin:0; width:1600px; height:900px; overflow:hidden;
+    font-family: -apple-system, "SF Pro Display", system-ui, sans-serif; }
+  .stage { position:relative; width:1600px; height:900px;
+    background: radial-gradient(1200px 700px at 30% 20%, #1e3a8a 0%, #0b1733 55%, #060b18 100%); }
+  .glow { position:absolute; left:720px; top:120px; width:700px; height:700px; border-radius:50%;
+    background: radial-gradient(closest-side, rgba(56,189,248,.28), rgba(56,189,248,0)); }
+
+  /* MacBook */
+  .mac { position:absolute; left:90px; top:150px; width:820px; }
+  .mac .lid { position:relative; width:820px; height:530px; background:#1c1d22; border-radius:28px 28px 10px 10px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55), inset 0 0 0 2px #3a3b42; }
+  .mac .screen { position:absolute; left:24px; top:22px; right:24px; bottom:22px; border-radius:14px; overflow:hidden; background:#000; }
+  .mac .screen img { width:100%; height:100%; object-fit:cover; display:block; }
+  .mac .notch { position:absolute; left:50%; top:22px; width:150px; height:18px; margin-left:-75px; background:#1c1d22; border-radius:0 0 12px 12px; }
+  .mac .base { width:980px; height:26px; margin-left:-80px; background: linear-gradient(#d9dbe0, #a9acb3);
+    border-radius: 6px 6px 22px 22px; box-shadow: 0 20px 40px rgba(0,0,0,.5); position:relative; }
+  .mac .base::after { content:""; position:absolute; left:50%; top:0; width:160px; height:9px; margin-left:-80px; background:#8a8d94; border-radius:0 0 10px 10px; }
+  /* Mac shows a dimmed second desktop to hint "extended display" */
+  .mac .screen .label { position:absolute; left:0; right:0; bottom:0; padding:14px 22px; color:#fff; font-size:22px; font-weight:600;
+    background: linear-gradient(transparent, rgba(0,0,0,.65)); }
+
+  /* iPad */
+  .ipad { position:absolute; left:1040px; top:225px; width:480px; height:365px; background:#2b2c31; border-radius:34px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.6), inset 0 0 0 2px #4a4b52; transform: rotate(-4deg); }
+  .ipad .screen { position:absolute; left:22px; top:22px; right:22px; bottom:22px; border-radius:16px; overflow:hidden; background:#000; }
+  .ipad .screen img { width:100%; height:100%; object-fit:cover; display:block; }
+  .ipad .cam { position:absolute; left:50%; top:9px; width:8px; height:8px; margin-left:-4px; border-radius:50%; background:#111; box-shadow: inset 0 0 0 2px #333; }
+
+  /* Pencil */
+  .pencil { position:absolute; left:1500px; top:205px; width:16px; height:420px; background: linear-gradient(90deg, #f3f4f6, #d1d5db); border-radius:8px 8px 4px 4px;
+    transform: rotate(-4deg); box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+  .pencil::after { content:""; position:absolute; left:0; bottom:-26px; width:0; height:0; border-left:8px solid transparent; border-right:8px solid transparent; border-top:28px solid #e5e7eb; }
+
+  /* link */
+  .link { position:absolute; left:915px; top:400px; width:120px; height:60px; }
+  .link svg { width:120px; height:60px; }
+
+  .tag { position:absolute; left:90px; top:760px; color:#e6edff; font-size:34px; font-weight:700; letter-spacing:-.5px; }
+  .tag span { display:block; font-size:20px; font-weight:500; color:#9fb4e8; margin-top:4px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="glow"></div>
+
+  <div class="mac">
+    <div class="lid">
+      <div class="screen"><img src="../screenshot-stream.jpg" alt=""><div class="label">Mac · จอหลัก</div></div>
+      <div class="notch"></div>
+    </div>
+    <div class="base"></div>
+  </div>
+
+  <div class="link">
+    <svg viewBox="0 0 120 60" fill="none" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round">
+      <path d="M8 30 Q 60 -10 112 30" stroke-dasharray="2 12"/>
+      <path d="M8 30 Q 60 70 112 30" stroke-dasharray="2 12" opacity=".6"/>
+    </svg>
+  </div>
+
+  <div class="ipad">
+    <div class="cam"></div>
+    <div class="screen"><img src="../screenshot-stream.jpg" alt=""></div>
+  </div>
+  <div class="pencil"></div>
+
+  <div class="tag">JorSong<span>iPad = จอที่สองของ Mac · H.264 · Apple Pencil · Wi‑Fi หรือ USB</span></div>
+</div>
+</body>
+</html>
